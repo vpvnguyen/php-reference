@@ -13,10 +13,64 @@
 
 ```php
 /* Authentication type and info */
+...
 $cfg['Servers'][$i]['password'] = 'REPLACE_ME';
 ```
 
 ## Code Syntax
+
+- Wrap code with:
+
+```php
+<?php
+    // your code here
+?>
+```
+
+- Variables
+
+```php
+// prefix with $
+// start with a letter or underscore
+// only letters, numbers, and underscores
+// case sensitive
+$variable = 'This is a variable';
+echo $variable;
+```
+
+- Data types:
+
+```php
+// String
+$string = 'string';
+$string2 = 'string2';
+$concatString = $string1 . $string2;
+echo $concatString;
+
+// Integer
+$integer = 1;
+$integer2 = 2;
+$sum = $integer + $integer2;
+echo $sum;
+
+// Float
+$float = 1.1;
+
+// Boolean
+$boolean = true;
+
+// Arrays
+$array = [1, 2, 3];
+
+// Objects
+$object = {
+
+};
+
+// Null
+
+// Resource
+```
 
 ## Procedural & OOP
 
