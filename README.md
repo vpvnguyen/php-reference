@@ -9,6 +9,12 @@
 - Navigate to http://localhost/dashboard/ in browser
 - Root of webserver: ./xampp/htdocs
 - Change password: http://localhost/phpmyadmin/server_privileges.php?viewing_mode=server
+- Set password in ./xampp/phpMyAdmin/config.inc.php
+
+```php
+/* Authentication type and info */
+$cfg['Servers'][$i]['password'] = 'REPLACE_ME';
+```
 
 ## Code Syntax
 
