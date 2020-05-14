@@ -45,7 +45,16 @@ echo $variable;
 $string = 'string';
 $string2 = 'string2';
 $concatString = $string1 . $string2;
-echo $concatString;
+$concatString2 = "$string1 $string2";
+echo $concatString; // string string2
+echo $concatString2; // string string2
+
+// constants
+define('constant', 'this is a constant');
+echo constant; // this is a constant
+
+define('constant_insensitive', 'this is a constant', true);
+echo conStanT_iNsEnsiTive; // this is a constant
 
 // Integer
 $integer = 1;
