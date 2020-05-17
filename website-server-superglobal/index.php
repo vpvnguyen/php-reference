@@ -16,9 +16,9 @@
     <div class="container">
         <h1>Server & File Info</h1>
         <!-- list key:value server info -->
-        <?php if($server): ?>
+        <?php if ($server): ?>
             <ul class="list-group">
-                <?php foreach($server as $key => $value): ?>
+                <?php foreach ($server as $key => $value): ?>
                     <li class="list-group-item">
                         <strong>
                             <?php echo $key; ?>:
@@ -45,7 +45,7 @@
 
         <!-- older way -->
         <h1>Server & File Info</h1>
-        <?php if($server){ ?>
+        <?php if ($server) { ?>
             <ul class="list-group">
                 <?php foreach ($server as $key => $value) { ?>
                     <li class="list-group-item">
