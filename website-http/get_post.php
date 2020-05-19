@@ -1,63 +1,78 @@
 <?php
+
+    $profileName = '';
+    $profileEmail = '';
+
     // works only with GET
-    if (isset($_GET['name'])) {
+    if (isset($_GET['get-name'])) {
         echo '<div>GET Request</div>';
         echo '<br>';
 
-       print_r($_GET);
-       echo '<br>';
-        echo $_GET['name'];
+        print_r($_GET);
         echo '<br>';
-        echo $_GET['email'];
+        echo $_GET['get-name'];
+        echo '<br>';
+        echo $_GET['get-email'];
         echo '<br>';
 
         // security; will strip power of html tags from executing
         // example: <script>alert(1)</script>
         // htmlentities will not execute the alert()
-        echo htmlentities($_GET['name']);
+        echo htmlentities($_GET['get-name']);
         echo '<br>';
+
+        $profileName = $_GET['get-name'];
+        $profileEmail = $_GET['get-email'];
+
 
     }
 
     // works only with POST
-    if (isset($_POST['name'])) {
+    if (isset($_POST['post-name'])) {
         echo '<div>POST Request</div>';
         echo '<br>';
 
         print_r($_POST);
         echo '<br>';
 
-        $name = htmlentities($_POST['name']);
-        $email = htmlentities($_POST['email']);
+        $postName = htmlentities($_POST['post-name']);
+        $postEmail = htmlentities($_POST['post-email']);
 
         echo '<br>';
 
-        echo $name;
+        echo $postName;
         echo '<br>';
 
-        echo $email;
+        echo $postEmail;
         echo '<br>';
+
+        $profileName = $_POST['post-name'];
+        $profileEmail = $_POST['post-email'];
 
     }
 
     // will work whether method is GET or POST
-    if (isset($_REQUEST['name'])) {
+    if (isset($_REQUEST['post-name'])) {
         echo '<div>_REQUEST Request</div>';
         echo '<br>';
 
-        print_r($_POST);
+        print_r($_REQUEST);
         echo '<br>';
 
-        $name = htmlentities($_REQUEST['name']);
-        $email = htmlentities($_REQUEST['email']);
+        $reqName = htmlentities($_REQUEST['post-name']);
+        $reqEmail = htmlentities($_REQUEST['post-email']);
 
         echo '<br>';
 
-        echo $name;
+        echo $reqName;
         echo '<br>';
 
-        echo $email;
+        echo $reqEmail;
         echo '<br>';
+
+        $profileName = $reqName;
+        $profileEmail = $reqEmail;
+
 
     }
 
@@ -76,12 +91,12 @@
 <h1>GET</h1>
     <form method="GET" action="get_post.php">
         <div>
-            <label for="name">Name</label>
-            <input type="text" name="name">
+            <label for="get-name">Name</label>
+            <input type="text" name="get-name">
         </div>
         <div>
-            <label for="email">Email</label>
-            <input type="text" name="email">
+            <label for="get-email">Email</label>
+            <input type="text" name="get-email">
         </div>
         <input type="submit" value="Submit">
 
@@ -90,15 +105,23 @@
 <h1>POST</h1>
     <form method="POST" action="get_post.php">
         <div>
-            <label for="name">Name</label>
-            <input type="text" name="name">
+            <label for="post-name">Name</label>
+            <input type="text" name="post-name">
         </div>
         <div>
-            <label for="email">Email</label>
-            <input type="text" name="email">
+            <label for="post-email">Email</label>
+            <input type="text" name="post-email">
         </div>
         <input type="submit" value="Submit">
-
     </form>
+
+    <ul>
+        <li>
+            <a href="get_post.php?get-name=get_test&get-email=get_test%40gmail.com">Get Profile</a>
+        </li>
+    </ul>
+    <h1><?php if ($profileName !== '') echo "{$profileName}'s profile"; ?></h1>
+    <h1><?php if ($profileEmail !== '') echo "Email: {$profileEmail}"; ?></h1>
+
 </body>
 </html>
