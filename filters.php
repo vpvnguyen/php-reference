@@ -13,7 +13,7 @@
         }
     }
 ?>
-
+<!-- $_SERVER['PHP_SELF'] will return current page -->
 <form method="POST" 
     action="
     <?php echo $_SERVER['PHP_SELF']; ?>
