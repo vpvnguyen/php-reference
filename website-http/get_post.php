@@ -24,7 +24,6 @@
         $profileName = $_GET['get-name'];
         $profileEmail = $_GET['get-email'];
 
-
     }
 
     // works only with POST
