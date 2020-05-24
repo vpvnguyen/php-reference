@@ -56,23 +56,47 @@
     //     echo '$varStr: '.$varStr. ' is NOT a number';
     // }
 
-    $varScript = '<script>alert(1)</script>';
-    echo $varScript; // will execute alert script; <script>alert(1)</script>
-    echo filter_var($varScript, FILTER_SANITIZE_SPECIAL_CHARS); // will not execute and renders to harmless string; &#60;script&#62;alert(1)&#60;/script&#62;
-    // var_dump(filter_var($var, FILTER_SANITIZE_NUMBER_INT));
+    // $varScript = '<script>alert(1)</script>';
+    // echo $varScript; // will execute alert script; <script>alert(1)</script>
+    // echo filter_var($varScript, FILTER_SANITIZE_SPECIAL_CHARS); // will not execute and renders to harmless string; &#60;script&#62;alert(1)&#60;/script&#62;
+    // // var_dump(filter_var($var, FILTER_SANITIZE_NUMBER_INT));
+
+    // $filters = [
+    //     'data' => FILTER_VALIDATE_EMAIL,
+    //     'data2' => [
+    //         'filter' => FILTER_VALIDATE_INT,
+    //         'options' => [
+    //             'min_range' => 1,
+    //             'max_range' => 100
+    //         ]
+    //     ],
+    // ];
+
+    // print_r(filter_input_array(INPUT_POST, $filters)) // data and data2 will return empty because it failed validation; Array ( [data] => [data2] => )
+
+    $arr = [
+        'name' => 'vincent nguyen',
+        'age' => '21',
+        'email' => 'test@gmail.com'
+    ];
 
     $filters = [
-        'data' => FILTER_VALIDATE_EMAIL,
-        'data2' => [
+        'name' => [
+            'filter' => FILTER_CALLBACK,
+            'options' => 'ucwords' // will upper case each word; vincent nguyen = Vincent Nguyen
+        ],
+        'age' => [
             'filter' => FILTER_VALIDATE_INT,
             'options' => [
                 'min_range' => 1,
-                'max_range' => 100
+                'max_range' => 120
             ]
         ],
+        'email' => FILTER_VALIDATE_EMAIL
     ];
 
-    print_r(filter_input_array(INPUT_POST, $filters)) // data and data2 will return empty because it failed validation; Array ( [data] => [data2] => )
+    print_r(filter_var_array($arr, $filters)); // change $arr values to see validation in effect; Array ( [name] => Vincent Nguyen [age] => 21 [email] => test@gmail.com )
+
 ?>
 
 <!-- $_SERVER['PHP_SELF'] will return current page -->
