@@ -61,7 +61,18 @@
     echo filter_var($varScript, FILTER_SANITIZE_SPECIAL_CHARS); // will not execute and renders to harmless string; &#60;script&#62;alert(1)&#60;/script&#62;
     // var_dump(filter_var($var, FILTER_SANITIZE_NUMBER_INT));
 
-    
+    $filters = [
+        'data' => FILTER_VALIDATE_EMAIL,
+        'data2' => [
+            'filter' => FILTER_VALIDATE_INT,
+            'options' => [
+                'min_range' => 1,
+                'max_range' => 100
+            ]
+        ],
+    ];
+
+    print_r(filter_input_array(INPUT_POST, $filters)) // data and data2 will return empty because it failed validation; Array ( [data] => [data2] => )
 ?>
 
 <!-- $_SERVER['PHP_SELF'] will return current page -->
@@ -70,5 +81,6 @@
     <?php echo $_SERVER['PHP_SELF']; ?>
 ">
     <input type="text" name="data">
+    <input type="text" name="data2">
     <button type="submit">Submit</button>
 </form>
