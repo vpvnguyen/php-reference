@@ -1,5 +1,5 @@
 <?php
-// message vars
+// notification variables
 $msg = '';
 $msgClass = ''; // used to set class to different alerts / colors; pass = green, fail = red
 
@@ -15,7 +15,7 @@ if (filter_has_var(INPUT_POST, 'submit')) {
     // if name, email, and message is not empty
     if (!empty($name) && !empty($email) && !empty($message)) {
         # pass
-        # check email
+        # check if email is valid
         if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
             # fail
             $msg = 'invalid email';
@@ -48,31 +48,30 @@ if (filter_has_var(INPUT_POST, 'submit')) {
                 $msg = 'Your email was not sent';
                 $msgClass = 'alert-danger';
             }
-            
-
         }
-
     } else {
         # fail
         // if fail, alert user and set div class to red
         $msg = 'Please fill in all fields';
         $msgClass = 'alert-danger';
     }
-    
 }
 ?>
+
+<!-- html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Form</title>
-
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
 </head>
+
 <body>
+
+    <!-- navbar -->
     <nav class="navbar navbar-dark bg-dark">
         <div class="container">
             <div class="navbar-header">
@@ -81,25 +80,30 @@ if (filter_has_var(INPUT_POST, 'submit')) {
         </div>
     </nav>
 
+    <!-- body -->
     <div class="container mt-5">
-
+        <!-- user notification -->
         <?php if ($msg != ''): ?>
             <div class="alert <?php echo $msgClass; ?>">
                 <?php echo $msg; ?>
             </div>
         <?php endif; ?>
 
+        <!-- contact form -->
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
             <div class="form-group">
                 <label for="name">Name</label>
+                <!-- if field isset, leave user typed value in field -->
                 <input type="text" name="name" class="form-control" value="<?php echo isset($_POST['name']) ? $name : ''; ?>">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
+                <!-- if field isset, leave user typed value in field -->
                 <input type="text" name="email" class="form-control" value="<?php echo isset($_POST['email']) ? $email : ''; ?>">
             </div>
             <div class="form-group">
                 <label for="message">Message</label>
+                <!-- if field isset, leave user typed value in field -->
                 <textarea name="message" id="" cols="30" rows="10" class="formcontrol"><?php echo isset($_POST['message']) ? $message : ''; ?></textarea>
             </div>
             <br>
