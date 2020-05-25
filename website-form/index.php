@@ -6,7 +6,7 @@ $msgClass = ''; // used to set class to different alerts / colors; pass = green,
 // check for submit
 if (filter_has_var(INPUT_POST, 'submit')) {
     echo 'clicked submit';
-    // get form data; htmlspecialchars to
+    // get form data; htmlspecialchars to validate and format fields
     $name = htmlspecialchars($_POST['name']);
     $email = htmlspecialchars($_POST['email']);
     $message = htmlspecialchars($_POST['message']);
