@@ -1,6 +1,5 @@
 <?php
     if (isset($_POST['submit'])) {
-        echo 'Form submitted';
 
         // start session
         session_start();
@@ -24,6 +23,7 @@
 </head>
 <body>
 
+    <!-- login -->
     <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <input type="text" name="name" placeholder="Enter Name">
         <br>
