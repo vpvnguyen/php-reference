@@ -1,4 +1,5 @@
 <?php
+    // storing arrays in cookies
     $user = [
         'name' => 'Vince',
         'email' => 'test@test.com',
@@ -17,5 +18,4 @@
     $user = unserialize($_COOKIE['user']);
 
     print_r($user); // Array ( [name] => Vince [email] => test@test.com [position] => developer )
-
 ?>
