@@ -1,0 +1,1 @@
+replace with string in file; append this string;
