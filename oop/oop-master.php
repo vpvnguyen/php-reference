@@ -11,6 +11,7 @@
             echo __CLASS__.' created<br>';
         }
 
+        // deconstructor
         public function __destruct() {
             echo __CLASS__.' destroyed<br>';
         }
