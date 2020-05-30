@@ -1,5 +1,5 @@
 <?php
-    // get credentials
+    // get credentials; $dbPassword
     require('creds.php');
 
     // create connection
