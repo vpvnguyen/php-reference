@@ -23,7 +23,7 @@
                 <h3><?php echo $post['title']; ?></h3>
                 <span>By <?php echo $post['author']; ?> on <?php echo $post['created_at']; ?></span>
                 <p class="m-3"><?php echo $post['body']; ?></p>
-                <a href="<?php echo ROOT_URL; ?>posts/fetchPostByID.php?id=<?php echo $post['id']; ?>">Read More</a>
+                <a href="<?php echo ROOT_URL; ?>posts/fetchPostByID.php?id=<?php echo $post['id']; ?>">Actions</a>
             </div>
         </div>
     <?php endforeach; ?>
