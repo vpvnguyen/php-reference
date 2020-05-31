@@ -1,6 +1,6 @@
 <?php
     // import
-    require('config/config.php');
+    require('config/index.php');
     echo 'index.php';
 ?>
 
