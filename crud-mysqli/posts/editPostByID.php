@@ -3,14 +3,13 @@
 
     // check for submit
     if (isset($_POST['submit'])) {
-        echo 'submitted';
         // get form data
-        $update_id = mysqli_real_escape_string($conn, $_POST['update_id']);
+        $updateByID = mysqli_real_escape_string($conn, $_POST['updateByID']);
         $title = mysqli_real_escape_string($conn, $_POST['title']);
         $body = mysqli_real_escape_string($conn, $_POST['body']);
         $author = mysqli_real_escape_string($conn, $_POST['author']);
 
-        $query = "UPDATE posts SET title='$title', author='$author', body='$body' WHERE id='{$update_id}'";
+        $query = "UPDATE posts SET title='$title', author='$author', body='$body' WHERE id='{$updateByID}'";
 
         if (mysqli_query($conn, $query)) {
             header('Location: '.ROOT_URL.'');
@@ -59,7 +58,7 @@
             <input type="text" name="body" class="form-control" value="<?php echo $post['body']; ?>">
         </div>
         <!-- hidden input to  -->
-        <input type="hidden" name="update_id" value="<?php echo $post['id']?>">
+        <input type="hidden" name="updateByID" value="<?php echo $post['id']?>">
         <input type="submit" name="submit" value="Submit" class="btn btn-primary">
     </form>
 </div>
