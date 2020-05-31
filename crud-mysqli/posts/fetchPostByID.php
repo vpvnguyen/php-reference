@@ -6,12 +6,12 @@
     // check for submit
     if (isset($_POST['delete'])) {
         // get form data
-        $delete_id = mysqli_real_escape_string($conn, $_POST['delete_id']);
+        $deleteByID = mysqli_real_escape_string($conn, $_POST['deleteByID']);
         $title = mysqli_real_escape_string($conn, $_POST['title']);
         $body = mysqli_real_escape_string($conn, $_POST['body']);
         $author = mysqli_real_escape_string($conn, $_POST['author']);
 
-    $query = "DELETE FROM posts WHERE id = {$delete_id}";
+    $query = "DELETE FROM posts WHERE id = {$deleteByID}";
 
         if (mysqli_query($conn, $query)) {
             header('Location: '.ROOT_URL.'');
@@ -64,7 +64,7 @@
             <a href="<?php echo ROOT_URL; ?>posts/editPostByID.php?id=<?php echo $post['id']; ?>" role="button" class="btn btn-outline-warning float-left">Edit</a>
             
             <form class="float-left ml-2" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                <input type="hidden" name="delete_id" value="<?php echo $post['id']; ?>">
+                <input type="hidden" name="deleteByID" value="<?php echo $post['id']; ?>">
                 <input type="submit" name="delete" value="Delete" class="btn btn-outline-danger">
             </form>
         </div>
