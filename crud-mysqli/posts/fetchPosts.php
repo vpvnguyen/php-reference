@@ -1,6 +1,6 @@
 <?php
     // create query
-    $query = 'SELECT * FROM posts';
+    $query = 'SELECT * FROM posts ORDER BY created_at DESC';
 
     // get result
     $result = mysqli_query($conn, $query);
@@ -15,14 +15,17 @@
     mysqli_close($conn);
 ?>
 
-<h1>Posts</h1>
-<?php foreach($posts as $post): ?>
-    <div class="row">
-        <div class="card card-body bg-light">
-            <h3><?php echo $post['title']; ?></h3>
-            <span>By <?php echo $post['author']; ?> on <?php echo $post['created_at']; ?></span>
-            <p class="m-3"><?php echo $post['body']; ?></p>
-            <a href="<?php echo ROOT_URL; ?>posts/fetchPostByID.php?id=<?php echo $post['id']; ?>">Read More</a>
+<div class="container mt-5">
+    <h1>Posts</h1>
+    <?php foreach($posts as $post): ?>
+        <div class="row">
+            <div class="card card-body bg-light">
+                <h3><?php echo $post['title']; ?></h3>
+                <span>By <?php echo $post['author']; ?> on <?php echo $post['created_at']; ?></span>
+                <p class="m-3"><?php echo $post['body']; ?></p>
+                <a href="<?php echo ROOT_URL; ?>posts/fetchPostByID.php?id=<?php echo $post['id']; ?>">Read More</a>
+            </div>
         </div>
-    </div>
-<?php endforeach; ?>
+    <?php endforeach; ?>
+</div>
+
