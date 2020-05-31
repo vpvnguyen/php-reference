@@ -3,7 +3,6 @@
 
     // check for submit
     if (isset($_POST['submit'])) {
-        echo 'submitted';
         // get form data
         $title = mysqli_real_escape_string($conn, $_POST['title']);
         $body = mysqli_real_escape_string($conn, $_POST['body']);
@@ -17,21 +16,6 @@
             echo 'Error: '.mysqli_error($conn);
         }
     }
-
-    // // create query
-    // $query = 'SELECT * FROM posts';
-
-    // // get result
-    // $result = mysqli_query($conn, $query);
-
-    // // fetch data; data is in an associative array ['name' => 'Vincent'];
-    // $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-    // // free result
-    // mysqli_free_result($result);
-
-    // // close connection
-    // mysqli_close($conn);
 ?>
 
 <!-- html -->
