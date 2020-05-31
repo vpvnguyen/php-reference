@@ -1,6 +1,9 @@
 <?php
-    // root url
-    define('ROOT_URL', 'http://localhost/php-reference/crud-mysqli/');
+    // routes
+    require('routes.php');
 
-    echo 'config/index.php';
+    // connect to DB
+    require('db.php');
+
+    echo '<br>config/index.php<br>';
 ?>

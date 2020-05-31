@@ -1,4 +1,4 @@
-<?php echo 'header.php'; ?>
+<?php echo '<br>header.php<br>'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
